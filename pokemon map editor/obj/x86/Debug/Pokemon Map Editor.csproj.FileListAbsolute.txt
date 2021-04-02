@@ -29,3 +29,17 @@ C:\Users\Kawai\Dropbox\Projects\Pokemon Map Editor\Pokemon Map Editor\obj\x86\De
 C:\Users\Kawai\Dropbox\Projects\Pokemon Map Editor\Pokemon Map Editor\obj\x86\Debug\PokemonMapEditor.frmMain.resources
 C:\Users\Kawai\Dropbox\Projects\Pokemon Map Editor\Pokemon Map Editor\obj\x86\Debug\PokemonMapEditor.Properties.Resources.resources
 C:\Users\Kawai\Dropbox\Projects\Pokemon Map Editor\Pokemon Map Editor\obj\x86\Debug\Pokemon Map Editor.csproj.GenerateResource.Cache
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\bin\Debug\Pokémon Map Editor.exe.config
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\bin\Debug\Pokémon Map Editor.exe
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\bin\Debug\Pokémon Map Editor.pdb
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\Pokemon Map Editor.csprojAssemblyReference.cache
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\PokemonMapEditor.frmFreeSpaceFinder.resources
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\PokemonMapEditor.frmMain.resources
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\PokemonMapEditor.Properties.Resources.resources
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\Pokemon Map Editor.csproj.GenerateResource.cache
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\Pokemon Map Editor.csproj.CoreCompileInputs.cache
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\Pokemon Map Editor.csproj.CopyComplete
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\Pokémon Map Editor.exe
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\obj\x86\Debug\Pokémon Map Editor.pdb
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\PokemonMapEditor\Pokemon Map Editor\bin\Debug\Newtonsoft.Json.xml

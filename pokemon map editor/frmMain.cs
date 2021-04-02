@@ -307,6 +307,23 @@ namespace PokemonMapEditor
             picBorder.Image = BorderImage;
         }
 
+        private static Bitmap RenderMap(ROM CurrentROM, Map map)
+        {
+            int Width = (int)map.Width * 16;
+            int Height = (int)map.Height * 16;
+
+            Tileset majorTileset = Tilesets.Load(CurrentROM, map.MajorTileset - 0x8000000, CurrentROM.TilesetHeader);
+            Tileset minorTileset = Tilesets.Load(CurrentROM, map.MinorTileset - 0x8000000, CurrentROM.TilesetHeader);
+            Bitmap TilesetImage = Tilesets.Render(CurrentROM, majorTileset, minorTileset, map);
+
+            Bitmap MapImage = new Bitmap(Width, Height);
+            Bitmap AttributeMap = new Bitmap(Width, Height);
+            Bitmap FinalMapImage = new Bitmap(Width, Height);
+
+            map.MapTileData = Maps.RenderMap(CurrentROM, MapImage, TilesetImage, map);
+            return MapImage;
+        }
+
         private void picTileset_Paint(object sender, PaintEventArgs e)
         {
             Pen Cursor = new Pen(Color.Blue, 2f);
@@ -696,6 +713,72 @@ namespace PokemonMapEditor
         private void cmbMapNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtMapName.Text = Maps.MapNameList[cmbMapNames.SelectedIndex];
+        }
+
+        private static void ExportMapData(ROM CurrentROM, Map map, string mapName, string dirpath)
+        {
+            string imageFilePath = Path.Combine(dirpath, mapName + ".png");
+            RenderMap(CurrentROM, map).Save(imageFilePath);
+
+            //int attribute = CurrentMap.MapTileData[3, 3] >> 10;
+            TileMap tileMap = new TileMap(new Bitmap((int)map.Width * 16, (int)map.Height * 16), 16, 16);
+            for (int y = 0; y < map.Height; y++)
+            {
+                for (int x = 0; x < map.Width; x++)
+                {
+                    tileMap.Map[y, x].Properties["attribute"] = Convert.ToString(map.MapTileData[x, y] >> 10);
+                }
+            }
+            string tileMapFilePath = Path.Combine(dirpath, mapName + ".json");
+
+    
+            tileMap.Save(tileMapFilePath);
+            
+        }
+
+        private void exportMapDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (treeMaps.SelectedNode == null)
+            {
+                MessageBox.Show("A map node must be selected.");
+                return;
+            }
+
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    string saveDirPath = fbd.SelectedPath;
+
+                    if (treeMaps.SelectedNode.Parent == null)
+                    {
+                        int selectedBank = treeMaps.SelectedNode.Index;
+                        for (int i = 0; i < treeMaps.SelectedNode.GetNodeCount(false); i++)
+                        {
+                            Map map = Maps.LoadMap(CurrentROM, selectedBank, i);
+                            string mapName = treeMaps.SelectedNode.Nodes[i].Text;
+                            mapName = mapName.Split(Path.GetInvalidFileNameChars())[0];
+                            string[] mapNameParts = mapName.Split(' ');
+                            mapName = string.Join("_", new ArraySegment<string>(mapNameParts, 3, mapNameParts.Length - 3)).ToLower();
+                            
+                            ExportMapData(CurrentROM, map, mapName, saveDirPath);
+                        }
+                    }
+                    else
+                    {
+                        int selectedMap = treeMaps.SelectedNode.Index;
+                        int selectedBank = treeMaps.SelectedNode.Parent.Index;
+                        Map map = Maps.LoadMap(CurrentROM, SelectedBank, SelectedMap);
+                        string mapName = treeMaps.SelectedNode.Text;
+                        mapName = mapName.Split(Path.GetInvalidFileNameChars())[0];
+                        string[] mapNameParts = mapName.Split(' ');
+                        mapName = string.Join("_", new ArraySegment<string>(mapNameParts, 3, mapNameParts.Length - 3)).ToLower();
+                        ExportMapData(CurrentROM, map, mapName, saveDirPath);
+                    }
+                }
+            }
         }
 
         private void mnuFreeSpaceFinder_Click(object sender, EventArgs e)

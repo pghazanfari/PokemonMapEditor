@@ -180,6 +180,7 @@
             this.txtMapHeader = new System.Windows.Forms.TextBox();
             this.txtBank = new System.Windows.Forms.TextBox();
             this.lblBank = new System.Windows.Forms.Label();
+            this.exportMapDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AppMenu.SuspendLayout();
             this.AppToolbar.SuspendLayout();
             this.AppStatusBar.SuspendLayout();
@@ -235,6 +236,7 @@
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuOpen,
             this.mnuSave,
+            this.exportMapDataToolStripMenuItem,
             this.mnuSpacer1,
             this.mnuExit});
             this.mnuFile.Name = "mnuFile";
@@ -246,7 +248,7 @@
             this.mnuOpen.Image = global::PokemonMapEditor.Properties.Resources.Open;
             this.mnuOpen.Name = "mnuOpen";
             this.mnuOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mnuOpen.Size = new System.Drawing.Size(185, 22);
+            this.mnuOpen.Size = new System.Drawing.Size(195, 22);
             this.mnuOpen.Text = "Open ROM...";
             this.mnuOpen.Click += new System.EventHandler(this.mnuOpen_Click);
             // 
@@ -256,20 +258,20 @@
             this.mnuSave.Image = global::PokemonMapEditor.Properties.Resources.Save;
             this.mnuSave.Name = "mnuSave";
             this.mnuSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSave.Size = new System.Drawing.Size(185, 22);
+            this.mnuSave.Size = new System.Drawing.Size(195, 22);
             this.mnuSave.Text = "Save ROM";
             this.mnuSave.Click += new System.EventHandler(this.mnuSave_Click);
             // 
             // mnuSpacer1
             // 
             this.mnuSpacer1.Name = "mnuSpacer1";
-            this.mnuSpacer1.Size = new System.Drawing.Size(182, 6);
+            this.mnuSpacer1.Size = new System.Drawing.Size(192, 6);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mnuExit.Size = new System.Drawing.Size(185, 22);
+            this.mnuExit.Size = new System.Drawing.Size(195, 22);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
@@ -291,7 +293,7 @@
             this.mnuNight,
             this.mnuAuto});
             this.mnuPalette.Name = "mnuPalette";
-            this.mnuPalette.Size = new System.Drawing.Size(119, 22);
+            this.mnuPalette.Size = new System.Drawing.Size(180, 22);
             this.mnuPalette.Text = "Palette...";
             // 
             // mnuNormal
@@ -343,25 +345,25 @@
             this.mnuSpacer2,
             this.mnuFreeSpaceFinder});
             this.mnuTools.Name = "mnuTools";
-            this.mnuTools.Size = new System.Drawing.Size(48, 20);
+            this.mnuTools.Size = new System.Drawing.Size(46, 20);
             this.mnuTools.Text = "&Tools";
             this.mnuTools.DropDownOpened += new System.EventHandler(this.mnuTools_DropDownOpened);
             // 
             // mnuPlugins
             // 
             this.mnuPlugins.Name = "mnuPlugins";
-            this.mnuPlugins.Size = new System.Drawing.Size(166, 22);
+            this.mnuPlugins.Size = new System.Drawing.Size(180, 22);
             this.mnuPlugins.Text = "Plugins";
             // 
             // mnuSpacer2
             // 
             this.mnuSpacer2.Name = "mnuSpacer2";
-            this.mnuSpacer2.Size = new System.Drawing.Size(163, 6);
+            this.mnuSpacer2.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuFreeSpaceFinder
             // 
             this.mnuFreeSpaceFinder.Name = "mnuFreeSpaceFinder";
-            this.mnuFreeSpaceFinder.Size = new System.Drawing.Size(166, 22);
+            this.mnuFreeSpaceFinder.Size = new System.Drawing.Size(180, 22);
             this.mnuFreeSpaceFinder.Text = "Free Space Finder";
             this.mnuFreeSpaceFinder.Click += new System.EventHandler(this.mnuFreeSpaceFinder_Click);
             // 
@@ -464,7 +466,7 @@
             // 
             this.lblCurrentTile.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.lblCurrentTile.Name = "lblCurrentTile";
-            this.lblCurrentTile.Size = new System.Drawing.Size(94, 19);
+            this.lblCurrentTile.Size = new System.Drawing.Size(93, 19);
             this.lblCurrentTile.Text = "Current Tile: ???";
             // 
             // lblLocation
@@ -565,7 +567,7 @@
             this.tabAttributes.Location = new System.Drawing.Point(4, 22);
             this.tabAttributes.Name = "tabAttributes";
             this.tabAttributes.Padding = new System.Windows.Forms.Padding(4);
-            this.tabAttributes.Size = new System.Drawing.Size(209, 453);
+            this.tabAttributes.Size = new System.Drawing.Size(157, 453);
             this.tabAttributes.TabIndex = 1;
             this.tabAttributes.Text = "Attributes";
             this.tabAttributes.UseVisualStyleBackColor = true;
@@ -591,7 +593,7 @@
             this.tabEvents.Location = new System.Drawing.Point(4, 22);
             this.tabEvents.Name = "tabEvents";
             this.tabEvents.Padding = new System.Windows.Forms.Padding(4);
-            this.tabEvents.Size = new System.Drawing.Size(209, 453);
+            this.tabEvents.Size = new System.Drawing.Size(157, 453);
             this.tabEvents.TabIndex = 2;
             this.tabEvents.Text = "Events";
             this.tabEvents.UseVisualStyleBackColor = true;
@@ -602,7 +604,7 @@
             this.pnlEventProps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEventProps.Location = new System.Drawing.Point(4, 88);
             this.pnlEventProps.Name = "pnlEventProps";
-            this.pnlEventProps.Size = new System.Drawing.Size(201, 361);
+            this.pnlEventProps.Size = new System.Drawing.Size(149, 361);
             this.pnlEventProps.TabIndex = 1;
             this.pnlEventProps.Visible = false;
             // 
@@ -612,7 +614,7 @@
             this.propEvents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propEvents.Location = new System.Drawing.Point(0, 0);
             this.propEvents.Name = "propEvents";
-            this.propEvents.Size = new System.Drawing.Size(201, 361);
+            this.propEvents.Size = new System.Drawing.Size(149, 361);
             this.propEvents.TabIndex = 0;
             // 
             // pnlEvents
@@ -624,7 +626,7 @@
             this.pnlEvents.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEvents.Location = new System.Drawing.Point(4, 4);
             this.pnlEvents.Name = "pnlEvents";
-            this.pnlEvents.Size = new System.Drawing.Size(201, 84);
+            this.pnlEvents.Size = new System.Drawing.Size(149, 84);
             this.pnlEvents.TabIndex = 0;
             this.pnlEvents.Visible = false;
             // 
@@ -730,7 +732,7 @@
             this.tabProperties.Location = new System.Drawing.Point(4, 22);
             this.tabProperties.Name = "tabProperties";
             this.tabProperties.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProperties.Size = new System.Drawing.Size(512, 453);
+            this.tabProperties.Size = new System.Drawing.Size(528, 453);
             this.tabProperties.TabIndex = 1;
             this.tabProperties.Text = "Properties";
             this.tabProperties.UseVisualStyleBackColor = true;
@@ -754,7 +756,7 @@
             this.pnlProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlProperties.Location = new System.Drawing.Point(3, 3);
             this.pnlProperties.Name = "pnlProperties";
-            this.pnlProperties.Size = new System.Drawing.Size(506, 447);
+            this.pnlProperties.Size = new System.Drawing.Size(522, 447);
             this.pnlProperties.TabIndex = 0;
             this.pnlProperties.Visible = false;
             // 
@@ -1185,7 +1187,7 @@
             this.tabHeader.Controls.Add(this.pnlHeader);
             this.tabHeader.Location = new System.Drawing.Point(4, 22);
             this.tabHeader.Name = "tabHeader";
-            this.tabHeader.Size = new System.Drawing.Size(512, 453);
+            this.tabHeader.Size = new System.Drawing.Size(528, 453);
             this.tabHeader.TabIndex = 2;
             this.tabHeader.Text = "Header";
             this.tabHeader.UseVisualStyleBackColor = true;
@@ -1207,7 +1209,7 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(512, 453);
+            this.pnlHeader.Size = new System.Drawing.Size(528, 453);
             this.pnlHeader.TabIndex = 0;
             this.pnlHeader.Visible = false;
             // 
@@ -1774,6 +1776,13 @@
             this.lblBank.Size = new System.Drawing.Size(30, 13);
             this.lblBank.TabIndex = 0;
             this.lblBank.Text = "Bank";
+            // 
+            // exportMapDataToolStripMenuItem
+            // 
+            this.exportMapDataToolStripMenuItem.Name = "exportMapDataToolStripMenuItem";
+            this.exportMapDataToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.exportMapDataToolStripMenuItem.Text = "Export Map Data";
+            this.exportMapDataToolStripMenuItem.Click += new System.EventHandler(this.exportMapDataToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -2430,8 +2439,7 @@
         private System.Windows.Forms.PropertyGrid propEvents;
         private System.Windows.Forms.PictureBox picBorder;
         private System.Windows.Forms.Button cmdDelete;
-
-
+        private System.Windows.Forms.ToolStripMenuItem exportMapDataToolStripMenuItem;
     }
 }
 
